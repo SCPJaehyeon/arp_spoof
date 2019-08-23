@@ -66,7 +66,7 @@ void packet_relay(char*dev, u_char *my_mac, int argc, char **argv){
                 memcpy(&repacket.iph.DIP[4], &packet_read[34],(header->caplen)-sizeof(repacket));
                 int res2 = pcap_sendpacket(handle2, (u_char*)&repacket, int(header->caplen));
                 printf("RELAY PACKET SEND! \n");
-                if(res2 == -1){printf("RELAY PACKET SEND Fail! \n");pcap_close(handle);pcap_close(handle2);return;}
+                if(res2 == -1){printf("RELAY PACKET SEND Fail! \n");pcap_close(handle);pcap_close(handle2);free(sen_mac);free(tar_mac);return;}
             }else {
                 printf("PACKET WAITING...\n");
             }}
