@@ -6,7 +6,7 @@ static packet packet;
 u_char* get_tarmac(char *dev, u_char *my_mac, uint32_t TarIP){
     u_char broadMac[6] = {0xff,0xff,0xff,0xff,0xff,0xff};
     u_char nothingMac[6] = {0x00,0x00,0x00,0x00,0x00,0x00};
-    uint8_t MyIP[4] = {192,168,123,234};
+    uint8_t MyIP[4] = {172,20,10,4};
     char errbuf[PCAP_ERRBUF_SIZE];
     pcap_t* handle = pcap_open_live(dev, BUFSIZ, 1, 1000, errbuf);
     memcpy(&etherh.DMAC, &broadMac[0], 6); //Destination MAC = BroadCast
